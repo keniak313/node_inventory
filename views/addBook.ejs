@@ -1,0 +1,26 @@
+<%-include('partials/head', title)-%>
+
+<body>
+  <%-include('partials/header') -%>
+  <main>
+    <div class="form">
+      <form action="/createBook" method="POST">
+        <label for="authorid">Author: </label>
+        <select id="authorid" name="authorid" required>
+          <option value="">None</option>
+          <% authors.map((author) =>{ %>
+          <option value="<%= author.id %>"><%= author.firstname %> <%= author.lastname %></option>
+          <%})%>
+        </select>
+        <label for="title">Title: </label>
+        <input type="text" name="title" id="title" required />
+        <label for="year">Year: </label>
+        <input type="number" name="year" id="year" required />
+        <label for="pages">Pages: </label>
+        <input type="number" name="pages" id="pages" required />
+        <button type="submit">Add book</button>
+      </form>
+    </div>
+  </main>
+  <%-include('partials/footer') -%>
+</body>

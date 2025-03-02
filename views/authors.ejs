@@ -3,10 +3,9 @@
 <body>
   <%-include('partials/header') -%>
   <main>
-    <a href="/addBook"><button>Add book</button></a>
     <div class="content">
-      <% books.map((book) =>{ %>
-      <%- include('partials/bookCard', {book: book}) -%>
+      <% authors.map((author) =>{ %>
+      <%- include('partials/authorCard', {author: author}) -%>
       <hr />
       <br />
       <%})%>

@@ -11,6 +11,20 @@ body {
   min-height: 100vh;
 }
 
+main{
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  height: 100%;
+  gap: 1rem;
+}
+
 header, footer{
     padding: 40px;
+}
+
+form{
+  display: flex;
+  flex-direction: column;
 }

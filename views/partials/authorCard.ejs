@@ -1,0 +1,8 @@
+<div>
+  <p>Full name: <%= author.firstname %> <%= author.lastname %></p>
+  <p>Books: <%= author.books %></p>
+  <a href="/editAuthor/<%= author.id %>"><button>Edit</button></a>
+  <a href="/removeAuthor/<%= author.id%>" onclick="return confirm(
+    `Are you sure you want to delete <%= author.firstname %> <%= author.lastname %>? WARNING: This will remove ALL books written by this author!`
+    );"><button>Remove</button></a>
+</div>
