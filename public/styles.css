@@ -28,3 +28,13 @@ form{
   display: flex;
   flex-direction: column;
 }
+
+.tags{
+  display: flex;
+  gap: .5rem;
+}
+
+.itemTags{
+  display: flex;
+  gap: .3rem;
+}

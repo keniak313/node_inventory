@@ -2,7 +2,7 @@ import "dotenv/config";
 import express from "express";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { indexRouter } from "./routes/indexRouter.js";
+import { booksRouter } from "./routes/booksRouter.js";
 import { authorsRouter } from "./routes/authorsRouter.js";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -19,7 +19,7 @@ const assetsPath = path.join(__dirname, "public");
 app.use(express.static(assetsPath));
 
 app.use("/authors", authorsRouter)
-app.use("/", indexRouter)
+app.use("/", booksRouter)
 
 
 

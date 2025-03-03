@@ -3,6 +3,13 @@
 <body>
   <%-include('partials/header') -%>
   <main>
+    <div class="tags">
+      <p>Tags: </p>
+      <% categories.map((cat) => { %>
+        <a href="/tag/<%= cat.name %> "><%= cat.name %></a>
+      <% }) %>
+      <a href="/addTag"><button>New Tag</button></a>
+    </div>
     <a href="/addBook"><button>Add book</button></a>
     <div class="content">
       <% books.map((book) =>{ %>
