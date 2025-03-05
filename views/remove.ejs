@@ -1,0 +1,18 @@
+<%-include('partials/head', title)-%>
+
+<body>
+  <%-include('partials/header') -%>
+  <main>
+    <p>REMOVING:</p>
+    <h3>"<%= name %>" from <%= req.params.type %> - ID: <%= req.params.id %></h3>
+    <h3 style="color: red;"><%= warningText %></h3>
+    <p>Type password to confirm.</p>
+    <form action="/remove/<%=req.params.id %>.<%=req.params.type %>" method="POST">
+      <label for="password">Password: </label>
+      <input type="password" name="password" id="password" required />
+      <button type="submit">REMOVE</button>
+    </form>
+    <%- include("partials/errors") %>
+  </main>
+  <%-include('partials/footer') -%>
+</body>

@@ -1,6 +1,6 @@
 <div>
   <p>Title: <%= book.title %></p>
-  <p>Author: <%= book.firstname %> <%= book.lastname %></p>
+  <p>Author: <a href="/authors/<%=book.author_id %>?<%=book.fullname %>"><%= book.fullname %></a></p>
   <p>Year: <%= book.year %></p>
   <p>Pages: <%= book.pages %></p>
   <div class="itemTags">
@@ -14,5 +14,5 @@
 
 
   <a href="/editBook/<%= book.id %>"><button>Edit</button></a>
-  <a href="/removeBook/<%= book.id%>" onclick="return confirm(`Are you sure you want to delete <%=book.title %>?`);"><button>Remove</button></a>
+  <a href="/remove/<%= book.id%>.books"><button>Remove</button></a>
 </div>

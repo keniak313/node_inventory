@@ -3,9 +3,12 @@
 <body>
   <%-include('partials/header') -%>
   <main>
+    <p>Books By: <%= author.fullname %></p>
+    <hr />
+    <br />
     <div class="content">
-      <% authors.map((author) =>{ %>
-      <%- include('partials/authorCard', {author: author}) -%>
+      <% books.map((book) =>{ %>
+      <%- include('partials/bookCard', {book: book}) -%>
       <hr />
       <br />
       <%})%>

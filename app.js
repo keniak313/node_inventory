@@ -4,6 +4,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { booksRouter } from "./routes/booksRouter.js";
 import { authorsRouter } from "./routes/authorsRouter.js";
+import { removeRouter } from "./routes/removeRouter.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -19,6 +20,7 @@ const assetsPath = path.join(__dirname, "public");
 app.use(express.static(assetsPath));
 
 app.use("/authors", authorsRouter)
+app.use("/remove", removeRouter)
 app.use("/", booksRouter)
 
 

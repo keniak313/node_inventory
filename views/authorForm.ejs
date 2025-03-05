@@ -4,14 +4,15 @@
   <%-include('partials/header') -%>
   <main>
     <div class="form">
-      <form action="/authors/addAuthor" method="POST">
+      <form action=<%= edit ? `/authors/editAuthor/${author.id}` : "/authors/addAuthor" %> method="POST">
         <label for="firstName">First Name: </label>
-        <input name="firstName" id="firstName" required/>
+        <input name="firstName" id="firstName" value="<%=author.firstname%>" required/>
         <label for="lastName">Last Name: </label>
-        <input name="lastName" id="lastName" required/>
-        <button type="submit">Add Author</button>
+        <input name="lastName" id="lastName" value="<%=author.lastname%>" required/>
+        <button type="submit"><%= edit ? "Confirm Edit" : "Add Author" %></button>
       </form>
     </div>
+    <%- include("partials/errors") %>
   </main>
   <%-include('partials/footer') -%>
 </body>

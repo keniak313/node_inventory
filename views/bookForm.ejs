@@ -28,15 +28,30 @@
           <input type="number" name="pages" id="pages" value="<%=book.pages %>" required />
 
           <label for="categories">Tags list: </label>
-          <select name="categories[]" id="categories" multiple required>
+          <select name="categories[]" id="categories" multiple>
             <% if(action === "update"){ %>
-            <% categories.map((cat) => { %>
-            <option value="<%=cat.id%>"><%=cat.name %></option>
-            <% }) %>
+              <% categories.map((cat, catIndex) => { %>
+
+                <% isSelected = false %>
+                <% if(book.array_agg){ %>
+                  <% book.array_agg.map((bc) =>{ %>
+                    <% if (bc === cat.name){ %>
+                      <% isSelected = true %>
+                    <% } %>
+                  <% }) %>
+                <% } %>
+                
+                <% if(cat.name != "None"){ %>
+                  <option value="<%=cat.id%>" <%= isSelected && `selected` %>><%=cat.name %></option>
+                <% } %>
+              <% }) %>
             <% }else if(action === "add"){ %>
-            <% categories.map((cat) => { %>
-            <option value="<%=cat.id%>"><%=cat.name %></option>
-            <% }) %>
+              <% categories.map((cat) => { %>
+                <% if(cat.name != "None"){ %>
+                  <option value="<%=cat.id%>"><%=cat.name %></option>
+                <% } %>
+                
+              <% }) %>
             <% } %>
           </select>
 
@@ -49,16 +64,7 @@
           </button>
         </form>
     </div>
+    <%- include("partials/errors") %>
   </main>
   <%-include('partials/footer') -%>
 </body>
-
-<script>
-  const doc = document.querySelectorAll("option");
-  doc.forEach((ch) =>{
-    book.array_agg.forEach((bc) =>{
-
-    })
-    ch.selected = true;
-  })
-</script>

@@ -9,12 +9,13 @@ const SQL = `
 CREATE TABLE IF NOT EXISTS authors (
     id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
     firstname VARCHAR ( 255 ),
-    lastname VARCHAR ( 255 )
+    lastname VARCHAR ( 255 ),
+    fullname VARCHAR ( 255 )
 );
 
 CREATE TABLE IF NOT EXISTS books (
     id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-    author_id INTEGER references authors(id),
+    author_id INTEGER references authors(id) ON DELETE CASCADE,
     title VARCHAR( 255 ),
     pages INTEGER,
     year INTEGER
